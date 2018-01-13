@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if params.any? {|key, value| value.empty?}
+    if has_empty_value?(params)
       redirect "/signup"
     else
       @user = User.create(params)
