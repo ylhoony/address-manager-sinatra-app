@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       redirect "/signup"
     else
       @user = User.create(params)
-      redirect '/'
+      redirect '/users'
     end
   end
 
@@ -18,10 +18,22 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
+    user = User.find_by(email: params[:email])
+    binding.pry
+    if user && user.authenticate(params[:password])
+      session[:user_id] = params[:email]
+      redirect '/users'
+    else
+      redirect '/login'
+    end
+  end
 
+  get '/logout' do
+    session.clear
+    redirect '/'
   end
 
   get '/users' do
-
+    erb :"users/index"
   end
 end
