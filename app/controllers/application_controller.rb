@@ -12,4 +12,10 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  helpers do
+    def has_empty_value?(params)
+      params.any? {|key, value| value.empty?}
+    end
+  end
+
 end
