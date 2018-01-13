@@ -1,4 +1,6 @@
 class Country < ActiveRecord::Base
+  has_many :companies
+
   validates :name, uniqueness: true
   validates :iso_2, uniqueness: true
   validates :iso_3, uniqueness: true
