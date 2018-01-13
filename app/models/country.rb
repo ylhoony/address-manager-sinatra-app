@@ -1,4 +1,8 @@
 class Country < ActiveRecord::Base
+  validates :name, uniqueness: true
+  validates :iso_2, uniqueness: true
+  validates :iso_3, uniqueness: true
+  validates :iso_numeric_3, uniqueness: true
 
   def slug
     self.name.gsub(/[\W\s+]/,"-").downcase

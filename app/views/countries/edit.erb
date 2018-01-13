@@ -2,16 +2,16 @@
 
 <form action="/countries/<%=@country.slug%>" method="post">
   <label for="country_name">Country Name: </label>
-  <input type="text" name="name" id="country_name" value="<%=@country.name%>"><br>
+  <input type="text" name="country[name]" id="country_name" value="<%=@country.name%>"><br>
 
   <label for="country_iso_2">ISO-2: </label>
-  <input type="text" name="iso_2" id="country_iso_2" value="<%=@country.iso_2%>"><br>
+  <input type="text" name="country[iso_2]" id="country_iso_2" value="<%=@country.iso_2%>"><br>
 
   <label for="country_iso_3">ISO-3: </label>
-  <input type="text" name="iso_3" id="country_iso_3" value="<%=@country.iso_3%>"><br>
+  <input type="text" name="country[iso_3]" id="country_iso_3" value="<%=@country.iso_3%>"><br>
 
   <label for="country_iso_num">ISO Numeric Code: </label>
-  <input type="text" name="iso_numeric_3" id="country_iso_num" value="<%=@country.iso_numeric_3%>"><br>
+  <input type="text" name="country[iso_numeric_3]" id="country_iso_num" value="<%=@country.iso_numeric_3%>"><br>
 
   <button type="submit">Save</button>
 
