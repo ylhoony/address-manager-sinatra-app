@@ -13,6 +13,14 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do
+    def logged_in?
+      !!session[:user_id]
+    end
+
+    def current_user
+      User.find_by(email: session[:user_id])
+    end
+
     def has_empty_value?(params)
       params.any? {|key, value| value.empty?}
     end
