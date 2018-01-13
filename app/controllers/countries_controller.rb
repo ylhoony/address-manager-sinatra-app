@@ -18,10 +18,11 @@ class CountriesController < ApplicationController
   end
 
   get '/countries/:slug/edit' do
-
+    @country = Country.find_by_slug(params[:slug])
+    erb :"/countries/edit"
   end
 
-  post '/countries/slug' do
+  post '/countries/:slug' do
 
   end
 

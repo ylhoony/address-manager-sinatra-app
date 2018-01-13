@@ -2,10 +2,10 @@
 <p><a href="/countries/new"><em>add country</em></a>
 
 <% Country.all.each do |country| %>
-  <h3><%=country.name%> <a href="/countries/<%=country.slug%>"><i>edit</i></a></h3>
+  <h3><%=country.name%> <a href="/countries/<%=country.slug%>/edit"><i>edit</i></a></h3>
   <ul>
     <li>ISO-2: <%=country.iso_2%></li>
     <li>ISO-3: <%=country.iso_3%></li>
-    <li>ISO-Numeric Code: <%=country.iso_numeric_3%></li>
+    <li>ISO Numeric Code: <%=country.iso_numeric_3%></li>
   </ul>
 <% end %>
