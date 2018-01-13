@@ -1,1 +1,11 @@
-country index
+<h2>Country List</h2>
+
+<% Country.all.each do |country| %>
+  <h3><%=country.name%> <a href="/countries/<%=country.slug%>"><i>edit</i></a></h3>
+  <ul>
+    <li>ISO-2: <%=country.iso_2%></li>
+    <li>ISO-3: <%=country.iso_3%></li>
+    <li>ISO-Numeric Code: <%=country.iso_numeric_3%></li>
+  </ul>
+  <br></br>
+<% end %>
