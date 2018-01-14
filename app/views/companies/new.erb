@@ -1,0 +1,22 @@
+<h2>Create Company</h2>
+
+<form action="/companies" method="post">
+
+  <input type="text" name="name" placeholder="Company Name"><br>
+  <input type="text" name="dba" placeholder="Doing Business As"><br>
+  <input type="text" name="address_1" placeholder="Address Line 1"><br>
+  <input type="text" name="address_2" placeholder="Address Line 2"><br>
+  <input type="text" name="city" placeholder="City"><br>
+  <input type="text" name="state" placeholder="State/Province"><br>
+  <select name="country_id">
+    <% Country.all.each do |country| %>
+      <option><%=country.name%></option>
+    <% end %>
+  </select><br>
+
+  <input type="text" name="postal_code" placeholder="Postal Code"><br>
+  <input type="text" name="email" placeholder="Email"><br>
+  <input type="text" name="phone" placeholder="Phone Number"><br>
+
+  <button type="submit">Create</button>
+</form>
