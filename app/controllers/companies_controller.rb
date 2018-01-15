@@ -21,7 +21,7 @@ class CompaniesController < ApplicationController
       @company = Company.create(params)
       @company.country = Country.find_by(name: params[:country_id])
       @company.save
-      redirect "companies/:id"
+      redirect "companies/#{@company.id}"
     else
       redirect "/login"
     end

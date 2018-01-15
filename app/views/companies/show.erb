@@ -1,1 +1,12 @@
-Company Information
+<p>Company Name: <%=@company.name%></p>
+<% if !@company.dba.empty? %>
+  <p>Doing Business As: <%=@company.dba%></p>
+<% end %>
+<p>Address 1: <%=@company.address_1%></p>
+<p>Address 2: <%=@company.address_2%></p>
+<p>City: <%=@company.city%></p>
+<p>State: <%=@company.state%></p>
+<p>Country: <%=@company.country.name%></p>
+<p>Postal Code: <%=@company.postal_code%></p>
+<p>Email: <%=@company.email%></p>
+<p>Phone Number: <%=@company.phone%></p>
