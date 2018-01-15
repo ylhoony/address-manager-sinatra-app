@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180113095858) do
+ActiveRecord::Schema.define(version: 20180115204242) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,12 @@ ActiveRecord::Schema.define(version: 20180113095858) do
     t.string "iso_2"
     t.string "iso_3"
     t.string "iso_numeric_3"
+  end
+
+  create_table "user_companies", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "company_id"
+    t.boolean "is_owner"
   end
 
   create_table "users", force: :cascade do |t|
