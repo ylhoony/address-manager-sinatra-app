@@ -45,4 +45,15 @@ class CompaniesController < ApplicationController
     end
   end
 
+  post '/companies/:id' do
+    if logged_in?
+      @company = Company.find(params[:id])
+      @company.update(params)
+      @company.save
+      rediret "/companies/#{@company.id}"
+    else
+      rediret "/login"
+    end
+  end
+
 end
