@@ -36,4 +36,13 @@ class CompaniesController < ApplicationController
     end
   end
 
+  get '/companies/:id/edit' do
+    if logged_in?
+      @company = Company.find(params[:id])
+      erb :"companies/edit"
+    else
+      rediret "/login"
+    end
+  end
+
 end
