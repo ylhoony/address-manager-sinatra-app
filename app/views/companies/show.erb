@@ -1,4 +1,4 @@
-<p>Company Name: <%=@company.name%></p>
+<h2>Company Name: <%=@company.name%> <a href="/companies/<%=@company.id%>/edit"><em>edit</em></a></h2>
 <% if !@company.dba.empty? %>
   <p>Doing Business As: <%=@company.dba%></p>
 <% end %>
