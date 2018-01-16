@@ -12,7 +12,9 @@
     <%=address.country.name%> <%=address.postal_code%><br>
     Email: <%=address.email%> / Phone: <%=address.phone%><br>
     Address Type: <%="Billing" if address.is_billing_address%> <%="Shipping" if address.is_shipping_address%><br>
-    Main Contact:
 
+    <% if !address.company_contact.nil? %>
+      Main Contact: <%=address.company_contact.first_name%> <%=address.company_contact.last_name%>
+    <% end %>
   </p>
 <% end %>

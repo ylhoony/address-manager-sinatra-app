@@ -21,8 +21,20 @@
   <input type="hidden" name="address[is_shipping_address]" value="false">
   <label for="shipping_address">Shipping Address: </label><input type="checkbox" name="address[is_shipping_address]" id="shipping_address" value="true" <%='checked' if @address.is_shipping_address == true%>><br>
 
-  add default contact selection<br>
+  <label for="main_contact">Main Contact: </label>
+  <select name="address[company_contact_id]" id="main_contact">
+    <% if !@address.company_contact_id.nil? %>
+      <% @address.company.company_contacts.each do |contact| %>
+        <option value="<%=contact.id%>" <%='selected' if contact.id.eql?(@address.company_contact_id)%>><%=contact.first_name%> <%=contact.last_name%></option>
+      <% end %>
+    <% else %>
+      <% @address.company.company_contacts.each do |contact| %>
+        <option value="<%=contact.id%>"><%=contact.first_name%> <%=contact.last_name%></option>
+      <% end %>
+    <% end %>
+  </select>
 
+  <br>
   <button type="submit">Save</button>
 
 </form>
