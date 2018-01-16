@@ -1,5 +1,6 @@
-<h2>Country List</h2>
-<p><a href="/countries/new"><em>add country</em></a>
+<p><a href="/companies">Home</a> | <a href="/users">My Profile</a> | <a href="/logout">Logout</a></p>
+<h3>Country List</h3>
+<p><a href="/countries/new"><em>add country</em></a></p>
 
 <% Country.all.each do |country| %>
   <h3><%=country.name%> <a href="/countries/<%=country.slug%>/edit"><i>edit</i></a></h3>
