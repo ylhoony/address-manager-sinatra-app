@@ -1,7 +1,8 @@
 <p><a href="/companies">Home</a> | <a href="/users">My Profile</a> | <a href="/logout">Logout</a></p>
 <h3>Create New Address for <%=@company.name%></h3>
-<form action="/companies/<%=@company.id%>/addresses" method="post">
 
+<form action="/companies/<%=@company.id%>/addresses" method="post">
+  <input type="hidden" name="address[company_id]" value="<%=@company.id%>">
   <input type="text" name="address[name]" placeholder="Company Name"><br>
   <input type="text" name="address[dba]" placeholder="Doing Business As"><br>
   <input type="text" name="address[address_1]" placeholder="Address Line 1"><br>
@@ -16,11 +17,17 @@
   <input type="text" name="address[postal_code]" placeholder="Postal Code"><br>
   <input type="text" name="address[email]" placeholder="Email"><br>
   <input type="text" name="address[phone]" placeholder="Phone Number"><br>
-  <input type="checkbox" name="address[is_billing_address]" value="true">Is Billing Address</inupt><br>
-  <input type="checkbox" name="address[is_shipping_address]" value="true">Is Shipping Address</inupt><br>
-
-  add contact selection<br>
+  <input type="hidden" name="address[is_billing_address]" value="false">
+  <label for="billing_address">Billing Address: </label><input type="checkbox" name="address[is_billing_address]" value="true" id="billing_address"><br>
+  <input type="hidden" name="address[is_shipping_address]" value="false">
+  <label for="shipping_address">Shipping Address: </label><input type="checkbox" name="address[is_shipping_address]" value="true" id="shipping_address"><br>
+  <label for="main_contact">Main Contact</label>
+  <select name="address[company_contact_id]" id="main_contact">
+    <% @company.company_contacts.each do |contact| %>
+      <option value="<%=contact.id%>"><%=contact.first_name%> <%=contact.last_name%></option>
+    <% end %>
+  </select>
+  <br>
 
   <button type="submit">Create</button>
-
 </form>

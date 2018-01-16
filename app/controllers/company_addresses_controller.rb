@@ -24,8 +24,8 @@ class CompanyAddressesController < ApplicationController
 
   post '/companies/:id/addresses' do
     if logged_in?
+      binding.pry
       @address = CompanyAddress.create(params[:address])
-      @address.company = Company.find(params[:id])
       @address.save
       redirect "/companies/#{@address.company.id}/addresses/#{@address.id}"
     else
