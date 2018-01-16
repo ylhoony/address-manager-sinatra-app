@@ -47,7 +47,6 @@ class CompanyAddressesController < ApplicationController
     if logged_in?
       @company = Company.find(params[:id])
       @address = @company.company_addresses.find {|address| address.id.eql?(params[:address_id].to_i)}
-
       erb :"company_addresses/edit"
     else
       redirect "/login"

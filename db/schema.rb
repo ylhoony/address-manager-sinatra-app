@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180115205334) do
+ActiveRecord::Schema.define(version: 20180116173327) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20180115205334) do
     t.boolean "is_billing_address", default: false
     t.boolean "is_shipping_address", default: false
     t.integer "company_contact_id"
+  end
+
+  create_table "company_contacts", force: :cascade do |t|
+    t.integer "company_id"
+    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
+    t.string "email"
   end
 
   create_table "countries", force: :cascade do |t|
