@@ -60,11 +60,11 @@ class UsersController < ApplicationController
     end
   end
 
-  post '/users' do
+  patch '/users' do
     if logged_in?
       @current_user = current_user
       if session[:user_id] == @current_user.email
-        @current_user.update(params)
+        @current_user.update(params[:user])
         session[:user_id] = @current_user.email
         redirect "/users"
       else
