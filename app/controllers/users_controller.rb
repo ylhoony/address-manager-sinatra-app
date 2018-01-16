@@ -43,6 +43,8 @@ class UsersController < ApplicationController
   end
 
   get '/users' do
+    binding.pry
+    @current_user = current_user
     erb :"users/index"
   end
 end

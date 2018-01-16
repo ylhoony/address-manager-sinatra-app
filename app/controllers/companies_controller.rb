@@ -20,6 +20,7 @@ class CompaniesController < ApplicationController
     if logged_in?
       @company = Company.create(params)
       @company.country = Country.find_by(name: params[:country_id])
+      @company.users << current_user
       @company.save
       redirect "companies/#{@company.id}"
     else
