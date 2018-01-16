@@ -1,23 +1,23 @@
 <p><a href="/companies">Home</a> | <a href="/users">My Profile</a> | <a href="/logout">Logout</a></p>
 <h3>Create New Address for <%=@company.name%></h3>
-<form action="/companies" method="post">
+<form action="/companies/<%=@company.id%>/addresses" method="post">
 
-  <input type="text" name="name" placeholder="Company Name"><br>
-  <input type="text" name="dba" placeholder="Doing Business As"><br>
-  <input type="text" name="address_1" placeholder="Address Line 1"><br>
-  <input type="text" name="address_2" placeholder="Address Line 2"><br>
-  <input type="text" name="city" placeholder="City"><br>
-  <input type="text" name="state" placeholder="State/Province"><br>
-  <select name="country_id"><br>
+  <input type="text" name="address[name]" placeholder="Company Name"><br>
+  <input type="text" name="address[dba]" placeholder="Doing Business As"><br>
+  <input type="text" name="address[address_1]" placeholder="Address Line 1"><br>
+  <input type="text" name="address[address_2]" placeholder="Address Line 2"><br>
+  <input type="text" name="address[city]" placeholder="City"><br>
+  <input type="text" name="address[state]" placeholder="State/Province"><br>
+  <select name="address[country_id]"><br>
     <% Country.all.each do |country| %>
-      <option><%=country.name%></option>
+      <option value="<%=country.id%>"><%=country.name%></option>
     <% end %>
   </select><br>
-  <input type="text" name="postal_code" placeholder="Postal Code"><br>
-  <input type="text" name="email" placeholder="Email"><br>
-  <input type="text" name="phone" placeholder="Phone Number"><br>
-  <input type="checkbox" name="is_billing_address">Is Billing Address</inupt><br>
-  <input type="checkbox" name="is_billing_address">Is Shipping Address</inupt><br>
+  <input type="text" name="address[postal_code]" placeholder="Postal Code"><br>
+  <input type="text" name="address[email]" placeholder="Email"><br>
+  <input type="text" name="address[phone]" placeholder="Phone Number"><br>
+  <input type="checkbox" name="address[is_billing_address]" value="true">Is Billing Address</inupt><br>
+  <input type="checkbox" name="address[is_shipping_address]" value="true">Is Shipping Address</inupt><br>
 
   add contact selection<br>
 

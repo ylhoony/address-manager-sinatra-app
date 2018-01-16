@@ -12,9 +12,9 @@ class CreateCompanyAddresses < ActiveRecord::Migration[5.1]
       t.string :postal_code
       t.string :email
       t.string :phone
-      t.boolean :is_billing_address
-      t.boolean :is_shipping_address
-      t.integer :company_contact_id      
+      t.boolean :is_billing_address, default: false
+      t.boolean :is_shipping_address, default: false
+      t.integer :company_contact_id
     end
   end
 end

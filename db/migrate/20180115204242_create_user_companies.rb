@@ -3,7 +3,7 @@ class CreateUserCompanies < ActiveRecord::Migration[5.1]
     create_table :user_companies do |t|
       t.integer :user_id
       t.integer :company_id
-      t.boolean :is_owner
+      t.boolean :is_owner, default: false
     end
   end
 end

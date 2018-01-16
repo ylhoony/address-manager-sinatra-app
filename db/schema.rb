@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20180115205334) do
     t.string "postal_code"
     t.string "email"
     t.string "phone"
-    t.boolean "is_billing_address"
-    t.boolean "is_shipping_address"
+    t.boolean "is_billing_address", default: false
+    t.boolean "is_shipping_address", default: false
     t.integer "company_contact_id"
   end
 
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20180115205334) do
   create_table "user_companies", force: :cascade do |t|
     t.integer "user_id"
     t.integer "company_id"
-    t.boolean "is_owner"
+    t.boolean "is_owner", default: false
   end
 
   create_table "users", force: :cascade do |t|
