@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   get '/login' do
     if logged_in?
-      rediret "/"
+      redirect "/"
     else
       erb :"users/login"
     end
@@ -47,15 +47,31 @@ class UsersController < ApplicationController
       @current_user = current_user
       erb :"users/show"
     else
-      rediret "/login"
+      redirect "/login"
     end
   end
 
   get '/users/edit' do
     if logged_in?
+      @current_user = current_user
       erb :"users/edit"
     else
-      rediret "/login"
+      redirect "/login"
+    end
+  end
+
+  post '/users' do
+    if logged_in?
+      @current_user = current_user
+      if session[:user_id] == @current_user.email
+        @current_user.update(params)
+        session[:user_id] = @current_user.email
+        redirect "/users"
+      else
+        redirect "/logout"
+      end
+    else
+      redirect "/login"
     end
   end
 

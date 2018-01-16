@@ -1,10 +1,10 @@
-<p><a href="/users">My Profile</a> | <a href="/logout">Logout</a></p>
+<p><a href="/companies">Home</a> | <a href="/users">My Profile</a> | <a href="/logout">Logout</a></p>
 <h3>My Profile</h3>
-<form action="/signup" method="post">
-  <input type="text" name="first_name" placeholder="First Name"><br>
-  <input type="text" name="last_name" placeholder="Last Name"><br>
-  <input type="email" name="email" placeholder="Email"><br>
+<form action="/users" method="post">
+  <input type="text" name="first_name" placeholder="First Name" value="<%=@current_user.first_name%>"><br>
+  <input type="text" name="last_name" placeholder="Last Name" value="<%=@current_user.last_name%>"><br>
+  <input type="email" name="email" placeholder="Email" value="<%=@current_user.email%>"><br>
   <input type="password" name="password" placeholder="Password"><br>
 
-  <button type="submit">Sign up</button>
+  <button type="submit">Update</button>
 </form>
