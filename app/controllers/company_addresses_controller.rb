@@ -68,7 +68,7 @@ class CompanyAddressesController < ApplicationController
     end
   end
 
-  post '/companies/:id/addresses/:address_id' do
+  patch '/companies/:id/addresses/:address_id' do
     if logged_in?
       if current_user.company_ids.include?(params[:id].to_i)
         @company = Company.find(params[:id])
@@ -91,7 +91,6 @@ class CompanyAddressesController < ApplicationController
         @address = CompanyAddress.find(params[:address_id])
         @address.delete
         redirect "/companies/#{@company.id}/addresses"
-        binding.pry
       else
         redirect "/companies"
       end

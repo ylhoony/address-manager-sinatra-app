@@ -1,6 +1,7 @@
 <p><a href="/companies">Home</a> | <a href="/users">My Profile</a> | <a href="/logout">Logout</a></p>
 <h3>Edit Address Below for <%=@company.name%></h3>
 <form action="/companies/<%=@company.id%>/addresses/<%=@address.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
 
   <input type="text" name="address[name]" placeholder="Company Name" value="<%=@address.name%>"><br>
   <input type="text" name="address[dba]" placeholder="Doing Business As" value="<%=@address.dba%>"><br>
