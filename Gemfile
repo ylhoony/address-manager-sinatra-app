@@ -17,6 +17,7 @@ gem "pry"
 gem "sqlite3"
 gem "bcrypt"
 gem "require_all"
+gem 'rack-flash3'
 
 group :test do
   gem "rspec"
