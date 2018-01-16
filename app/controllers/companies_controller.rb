@@ -65,11 +65,11 @@ class CompaniesController < ApplicationController
     end
   end
 
-  post '/companies/:id' do
+  patch '/companies/:id' do
     if logged_in?
       if current_user.company_ids.include?(params[:id].to_i)
         @company = Company.find(params[:id])
-        @company.update(params)
+        @company.update(params[:company])
         @company.save
         redirect "/companies/#{@company.id}"
       else
