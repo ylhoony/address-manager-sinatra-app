@@ -6,6 +6,6 @@
 
 <ul>
 <% @company.company_contacts.each do |contact| %>
-  <li><%=contact.first_name%> <%=contact.last_name%> - <%=contact.email%> / <%=contact.phone%> <a href="/companies/<%=contact.company_id%>/contacts/<%=contact.id%>/edit">edit</a></li>
+  <li><%=contact.first_name%> <%=contact.last_name%> - <%=contact.email%> / <%=contact.phone%> <a href="/companies/<%=contact.company_id%>/contacts/<%=contact.id%>">view</a> | <a href="/companies/<%=contact.company_id%>/contacts/<%=contact.id%>/edit">edit</a></li>
 <% end %>
 </ul>
