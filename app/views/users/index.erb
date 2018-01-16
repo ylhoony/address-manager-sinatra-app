@@ -1,7 +1,0 @@
-<h2>Client List</h2>
-<p><a href="/companies/new">Add New Company</a></p
-<ul>
-<% @current_user.companies.each do |company| %>
-  <li><a href="/companies/<%=company.id%>"><%=company.name%></a> - <%=company.state%>, <%=company.country.name%></li>
-<% end %>
-</ul>

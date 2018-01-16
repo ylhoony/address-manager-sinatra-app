@@ -2,6 +2,7 @@ class CompaniesController < ApplicationController
 
   get '/companies' do
     if logged_in?
+      @current_user = current_user
       erb :"companies/index"
     else
       redirect "/login"
