@@ -1,5 +1,6 @@
 <p><a href="/companies">Home</a> | <a href="/users">My Profile</a> | <a href="/logout">Logout</a></p>
 <p><a href="/companies/<%=@company.id%>/addresses">display addresses</a> | <a href="/companies/<%=@company.id%>/addresses/new">add new address</a></p>
+<p><a href="/companies/<%=@company.id%>/contacts">display contacts</a> | <a href="/companies/<%=@company.id%>/contacts/new">add new contact</a></p>
 <h3>Company Addresses for <%=@company.name%></h3>
 
 <% @company.company_addresses.each do |address| %>

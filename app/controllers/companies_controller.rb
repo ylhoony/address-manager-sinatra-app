@@ -41,8 +41,12 @@ class CompaniesController < ApplicationController
 
   get '/companies/:id' do
     if logged_in?
-      @company = Company.find(params[:id])
-      erb :"companies/show"
+      if current_user.company_ids.include?(params[:id].to_i)
+        @company = Company.find(params[:id])
+        erb :"companies/show"
+      else
+        redirect "/"
+      end
     else
       redirect "/login"
     end
@@ -50,8 +54,12 @@ class CompaniesController < ApplicationController
 
   get '/companies/:id/edit' do
     if logged_in?
-      @company = Company.find(params[:id])
-      erb :"companies/edit"
+      if current_user.company_ids.include?(params[:id].to_i)
+        @company = Company.find(params[:id])
+        erb :"companies/edit"
+      else
+        redirect "/companies"
+      end
     else
       redirect "/login"
     end
@@ -59,10 +67,14 @@ class CompaniesController < ApplicationController
 
   post '/companies/:id' do
     if logged_in?
-      @company = Company.find(params[:id])
-      @company.update(params)
-      @company.save
-      redirect "/companies/#{@company.id}"
+      if current_user.company_ids.include?(params[:id].to_i)
+        @company = Company.find(params[:id])
+        @company.update(params)
+        @company.save
+        redirect "/companies/#{@company.id}"
+      else
+        redirect "/companies"
+      end
     else
       redirect "/login"
     end
