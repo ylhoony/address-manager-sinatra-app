@@ -19,10 +19,19 @@ class CompaniesController < ApplicationController
 
   post '/companies' do
     if logged_in?
-      @company = Company.create(params)
-      @company.country = Country.find_by(name: params[:country_id])
+      @company = Company.create(params[:company])
       @company.users << current_user
       @company.user_companies.find_by(user_id: current_user.id).update(is_owner: true)
+      if !params[:address].empty?
+        @address = CompanyAddress.create(params[:address])
+        @company.company_addresses << @address
+      end
+      if !params[:contact].empty?
+        @contact = CompanyContact.create(params[:contact])
+        @company.company_contacts << @contact
+        @address.company_contact = @contact unless @address.nil?
+        @address.save
+      end
       @company.save
       redirect "companies/#{@company.id}"
     else

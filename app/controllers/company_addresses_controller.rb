@@ -3,6 +3,7 @@ class CompanyAddressesController < ApplicationController
   get '/companies/:id/addresses' do
     if logged_in?
       if current_user.company_ids.include?(params[:id].to_i)
+        binding.pry
         @company = Company.find(params[:id])
         erb :"company_addresses/index"
       else

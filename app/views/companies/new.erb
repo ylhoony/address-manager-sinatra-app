@@ -3,21 +3,49 @@
 
 <form action="/companies" method="post">
 
-  <input type="text" name="name" placeholder="Company Name"><br>
-  <input type="text" name="dba" placeholder="Doing Business As"><br>
-  <input type="text" name="address_1" placeholder="Address Line 1"><br>
-  <input type="text" name="address_2" placeholder="Address Line 2"><br>
-  <input type="text" name="city" placeholder="City"><br>
-  <input type="text" name="state" placeholder="State/Province"><br>
-  <select name="country_id">
+  <input type="text" name="company[name]" placeholder="Company Name"><br>
+  <input type="text" name="company[dba]" placeholder="Doing Business As"><br>
+  <input type="text" name="company[address_1]" placeholder="Address Line 1"><br>
+  <input type="text" name="company[address_2]" placeholder="Address Line 2"><br>
+  <input type="text" name="company[city]" placeholder="City"><br>
+  <input type="text" name="company[state]" placeholder="State/Province"><br>
+  <select name="company[country_id]">
     <% Country.all.each do |country| %>
-      <option><%=country.name%></option>
+      <option value="<%=country.id%>"><%=country.name%></option>
     <% end %>
   </select><br>
 
-  <input type="text" name="postal_code" placeholder="Postal Code"><br>
-  <input type="text" name="email" placeholder="Email"><br>
-  <input type="text" name="phone" placeholder="Phone Number"><br>
+  <input type="text" name="company[postal_code]" placeholder="Postal Code"><br>
+  <input type="text" name="company[email]" placeholder="Email"><br>
+  <input type="text" name="company[phone]" placeholder="Phone Number"><br>
+
+
+  <h3>Create New Address</h3>
+
+  <input type="text" name="address[name]" placeholder="Company Name"><br>
+  <input type="text" name="address[dba]" placeholder="Doing Business As"><br>
+  <input type="text" name="address[address_1]" placeholder="Address Line 1"><br>
+  <input type="text" name="address[address_2]" placeholder="Address Line 2"><br>
+  <input type="text" name="address[city]" placeholder="City"><br>
+  <input type="text" name="address[state]" placeholder="State/Province"><br>
+  <select name="address[country_id]"><br>
+    <% Country.all.each do |country| %>
+      <option value="<%=country.id%>"><%=country.name%></option>
+    <% end %>
+  </select><br>
+  <input type="text" name="address[postal_code]" placeholder="Postal Code"><br>
+  <input type="text" name="address[email]" placeholder="Email"><br>
+  <input type="text" name="address[phone]" placeholder="Phone Number"><br>
+  <input type="hidden" name="address[is_billing_address]" value="false">
+  <label for="billing_address">Billing Address: </label><input type="checkbox" name="address[is_billing_address]" value="true" id="billing_address"><br>
+  <input type="hidden" name="address[is_shipping_address]" value="false">
+  <label for="shipping_address">Shipping Address: </label><input type="checkbox" name="address[is_shipping_address]" value="true" id="shipping_address"><br>
+
+  <h3>Create Main Contact for address above</h3>
+  <input type="text" name="contact[first_name]" placeholder="Contact First Name"><br>
+  <input type="text" name="contact[last_name]" placeholder="Contact Last Name"><br>
+  <input type="text" name="contact[email]" placeholder="Contact Email"><br>
+  <input type="text" name="contact[phone]" placeholder="Contact Phone"><br>
 
   <button type="submit">Create</button>
 </form>
