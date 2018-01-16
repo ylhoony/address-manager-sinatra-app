@@ -84,4 +84,20 @@ class CompanyAddressesController < ApplicationController
     end
   end
 
+  delete '/companies/:id/addresses/:address_id/delete' do
+    if logged_in?
+      if current_user.company_ids.include?(params[:id].to_i)
+        @company = Company.find(params[:id])
+        @address = CompanyAddress.find(params[:address_id])
+        @address.delete
+        redirect "/companies/#{@company.id}/addresses"
+        binding.pry
+      else
+        redirect "/companies"
+      end
+    else
+      redirect "/login"
+    end
+  end
+
 end

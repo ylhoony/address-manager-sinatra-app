@@ -2,7 +2,11 @@
 <p><a href="/companies/<%=@company.id%>/addresses">display addresses</a> | <a href="/companies/<%=@company.id%>/addresses/new">add new address</a></p>
 <h3>Company Address for <%=@company.name%></h3>
 
-<p><a href="/companies/<%=@company.id%>/addresses/<%=@address.id%>/edit">edit address below</a></p>
+<p><button><a href="/companies/<%=@company.id%>/addresses/<%=@address.id%>/edit">edit</a></button></p>
+<form method="post" action="/companies/<%=@company.id%>/addresses/<%=@address.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
 <p>Company Name: <%=@address.name%></p>
 <p>Doing Business As: <%=@address.dba%></p>
 <p>Address Line 1: <%=@address.address_1%></p>
