@@ -5,4 +5,5 @@ use CountriesController
 use UsersController
 use CompaniesController
 use CompanyAddressesController
+use CompanyContactsController
 run ApplicationController
