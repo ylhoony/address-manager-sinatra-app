@@ -47,7 +47,15 @@ class UsersController < ApplicationController
       @current_user = current_user
       erb :"users/show"
     else
-      rediret '/login'
+      rediret "/login"
+    end
+  end
+
+  get '/users/edit' do
+    if logged_in?
+      erb :"users/edit"
+    else
+      rediret "/login"
     end
   end
 

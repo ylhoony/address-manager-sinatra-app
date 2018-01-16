@@ -1,8 +1,5 @@
-<p><a href="/logout">Logout</a></p>
-<h2>Client List</h2>
-<p><a href="/companies/new">Add New Company</a></p
-<ul>
-<% @current_user.companies.each do |company| %>
-  <li><a href="/companies/<%=company.id%>"><%=company.name%></a> - <%=company.state%>, <%=company.country.name%></li>
-<% end %>
-</ul>
+<p><a href="/users">My Profile</a> | <a href="/logout">Logout</a></p>
+<h3>My Profile</h3>
+<p>First Name: <%=@current_user.first_name%></p>
+<p>Last Name: <%=@current_user.last_name%></p>
+<p>Email: <%=@current_user.email%></p>
