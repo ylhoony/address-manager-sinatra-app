@@ -1,26 +1,26 @@
 <p><a href="/companies">Home</a> | <a href="/users">My Profile</a> | <a href="/logout">Logout</a></p>
 <h3>Edit Address Below for <%=@company.name%></h3>
-<form action="/companies/<%=@company.id%>/addresses" method="post">
+<form action="/companies/<%=@company.id%>/addresses/<%=@address.id%>" method="post">
 
-  <input type="text" name="address[name]" placeholder="Company Name" value=""><br>
-  <input type="text" name="address[dba]" placeholder="Doing Business As"><br>
-  <input type="text" name="address[address_1]" placeholder="Address Line 1"><br>
-  <input type="text" name="address[address_2]" placeholder="Address Line 2"><br>
-  <input type="text" name="address[city]" placeholder="City"><br>
-  <input type="text" name="address[state]" placeholder="State/Province"><br>
+  <input type="text" name="address[name]" placeholder="Company Name" value="<%=@address.name%>"><br>
+  <input type="text" name="address[dba]" placeholder="Doing Business As" value="<%=@address.dba%>"><br>
+  <input type="text" name="address[address_1]" placeholder="Address Line 1" value="<%=@address.address_1%>"><br>
+  <input type="text" name="address[address_2]" placeholder="Address Line 2" value="<%=@address.address_2%>"><br>
+  <input type="text" name="address[city]" placeholder="City" value="<%=@address.city%>"><br>
+  <input type="text" name="address[state]" placeholder="State/Province" value="<%=@address.state%>"><br>
   <select name="address[country_id]"><br>
     <% Country.all.each do |country| %>
-      <option value="<%=country.id%>"><%=country.name%></option>
+      <option value="<%=country.id%>" <%='selected' if @address.country.id.eql?(country.id)%>><%=country.name%></option>
     <% end %>
   </select><br>
-  <input type="text" name="address[postal_code]" placeholder="Postal Code"><br>
-  <input type="text" name="address[email]" placeholder="Email"><br>
-  <input type="text" name="address[phone]" placeholder="Phone Number"><br>
-  <input type="checkbox" name="address[is_billing_address]" value="true">Is Billing Address</inupt><br>
-  <input type="checkbox" name="address[is_shipping_address]" value="true">Is Shipping Address</inupt><br>
+  <input type="text" name="address[postal_code]" placeholder="Postal Code" value="<%=@address.postal_code%>"><br>
+  <input type="text" name="address[email]" placeholder="Email" value="<%=@address.email%>"><br>
+  <input type="text" name="address[phone]" placeholder="Phone Number" value="<%=@address.phone%>"><br>
+  <label for="billing_address">Billing Address: </label><input type="checkbox" name="address[is_billing_address]" id="billing_address" <%='checked' if @address.is_billing_address == true%>><br>
+  <label for="shipping_address">Shipping Address: </label><input type="checkbox" name="address[is_shipping_address]" id="shipping_address" <%='checked' if @address.is_shipping_address == true%>><br>
 
-  add contact selection<br>
+  add default contact selection<br>
 
-  <button type="submit">Create</button>
+  <button type="submit">Save</button>
 
 </form>

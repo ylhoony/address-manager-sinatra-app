@@ -54,4 +54,12 @@ class CompanyAddressesController < ApplicationController
     end
   end
 
+  post '/companies/:id/addresses/:address_id' do
+    if logged_in?
+      binding.pry
+    else
+      redirect "/login"
+    end
+  end
+
 end
