@@ -3,6 +3,7 @@
 <p><a href="/companies/<%=@company.id%>/contacts">display contacts</a> | <a href="/companies/<%=@company.id%>/contacts/new">add new contact</a></p>
 
 <h3>Contact Information for <%=@contact.company.name%></h3>
+<a href="/companies/<%=@contact.company.id%>/contacts/<%=@contact.id%>/edit">edit contact</a>
 <ul>
   <li>First Name: <%=@contact.first_name%></li>
   <li>Last Name: <%=@contact.last_name%></li>
