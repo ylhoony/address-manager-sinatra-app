@@ -12,7 +12,6 @@
 <p>Country: <%=@address.country.name%></p>
 <p>Postal Code: <%=@address.postal_code%></p>
 <p>Email: <%=@address.email%></p>
-<p>Billing Address <input type="checkbox" disabled <%='checked' if @address.is_billing_address == true%>>
-<p>Shipping Address <input type="checkbox" disabled <%='checked' if @address.is_shipping_address == true%>>
-
-<p>add default contact</p>
+<p>Billing Address: <input type="checkbox" disabled <%='checked' if @address.is_billing_address == true%>>
+<p>Shipping Address: <input type="checkbox" disabled <%='checked' if @address.is_shipping_address == true%>>
+<p>Main Contact: <%=@address.company_contact.first_name%> <%=@address.company_contact.last_name%> <a href="/companies/<%=@address.company.id%>/contacts/<%=@address.company_contact.id%>">view</a></p>
