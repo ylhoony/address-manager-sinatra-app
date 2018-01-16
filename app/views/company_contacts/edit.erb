@@ -1,1 +1,14 @@
-company contact edit page
+<p><a href="/companies">Home</a> | <a href="/users">My Profile</a> | <a href="/logout">Logout</a></p>
+<p><a href="/companies/<%=@company.id%>/addresses">display addresses</a> | <a href="/companies/<%=@company.id%>/addresses/new">add new address</a></p>
+<p><a href="/companies/<%=@company.id%>/contacts">display contacts</a> | <a href="/companies/<%=@company.id%>/contacts/new">add new contact</a></p>
+<h3>Edit Contact</h3>
+<form action="/companies/<%=@company.id%>/contacts/<%=@contact.id%>" method="post">
+  <input type="hidden" name="contact[company_id]" value="<%=@contact.company.id%>">
+  <input type="text" name="contact[first_name]" placeholder="Contact First Name" value="<%=@contact.first_name%>"><br>
+  <input type="text" name="contact[last_name]" placeholder="Contact Last Name" value="<%=@contact.last_name%>"><br>
+  <input type="text" name="contact[email]" placeholder="Contact Email" value="<%=@contact.email%>"><br>
+  <input type="text" name="contact[phone]" placeholder="Contact Phone" value="<%=@contact.phone%>"><br>
+
+  <button type="submit">Save</button>
+
+</form>

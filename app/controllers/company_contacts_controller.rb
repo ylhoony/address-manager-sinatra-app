@@ -39,6 +39,8 @@ class CompanyContactsController < ApplicationController
 
   get '/companies/:id/contacts/:contact_id/edit' do
     if logged_in?
+      @company = Company.find(params[:id])
+      @contact = CompanyContact.find(params[:contact_id])
       erb :"company_contacts/edit"
     else
       redirect "/login"
