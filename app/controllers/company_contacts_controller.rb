@@ -2,6 +2,8 @@ class CompanyContactsController < ApplicationController
 
   get '/companies/:id/contacts' do
     if logged_in?
+      binding.pry
+      @company = Company.find(params[:id])
       erb :"company_contacts/index"
     else
       redirect "/login"
@@ -25,7 +27,6 @@ class CompanyContactsController < ApplicationController
       redirect "/login"
     end
   end
-
 
 
 end

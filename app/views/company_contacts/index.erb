@@ -1,1 +1,11 @@
-company contact index
+<p><a href="/companies">Home</a> | <a href="/users">My Profile</a> | <a href="/logout">Logout</a></p>
+<p><a href="/companies/<%=@company.id%>/addresses">display addresses</a> | <a href="/companies/<%=@company.id%>/addresses/new">add new address</a></p>
+<p><a href="/companies/<%=@company.id%>/contacts">display contacts</a> | <a href="/companies/<%=@company.id%>/contacts/new">add new contact</a></p>
+
+<h3>Contact List</h3>
+
+<ul>
+<% @company.company_contacts.each do |contact| %>
+  <li><%=contact.first_name%> <%=contact.last_name%> - <%=contact.email%> / <%=contact.phone%> <a href="/companies/<%=contact.company_id%>/contacts/<%=contact.id%>/edit">edit</a></li>
+<% end %>
+</ul>
