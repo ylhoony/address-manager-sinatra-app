@@ -33,4 +33,22 @@ class CompanyAddressesController < ApplicationController
     end
   end
 
+  get '/companies/:id/addresses/:address_id' do
+    if logged_in?
+
+      erb :"company_addresses/show"
+    else
+      redirect "/login"
+    end
+  end
+
+  get '/companies/:id/addresses/:address_id/edit' do
+    if logged_in?
+      
+      erb :"company_addresses/edit"
+    else
+      redirect "/login"
+    end
+  end
+
 end
