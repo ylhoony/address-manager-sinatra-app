@@ -46,7 +46,7 @@ class CompaniesController < ApplicationController
       @company = Company.find(params[:id])
       erb :"companies/edit"
     else
-      rediret "/login"
+      redirect "/login"
     end
   end
 
@@ -55,9 +55,9 @@ class CompaniesController < ApplicationController
       @company = Company.find(params[:id])
       @company.update(params)
       @company.save
-      rediret "/companies/#{@company.id}"
+      redirect "/companies/#{@company.id}"
     else
-      rediret "/login"
+      redirect "/login"
     end
   end
 
