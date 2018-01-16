@@ -47,4 +47,15 @@ class CompanyContactsController < ApplicationController
     end
   end
 
+  post '/companies/:id/contacts/:contact_id' do
+    if logged_in?
+      @contact = Company.find(params[:id]).company_contacts.find {|contact| contact.id.eql?(params[:contact_id].to_i)}
+      @contact.update(params[:contact])
+      @contact.save
+      redirect "/companies/#{@contact.company.id}/contacts/#{@contact.id}"
+    else
+      redirect "/login"
+    end
+  end
+
 end
