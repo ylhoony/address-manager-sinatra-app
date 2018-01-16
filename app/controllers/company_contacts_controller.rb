@@ -67,7 +67,7 @@ class CompanyContactsController < ApplicationController
     end
   end
 
-  post '/companies/:id/contacts/:contact_id' do
+  patch '/companies/:id/contacts/:contact_id' do
     if logged_in?
       if current_user.company_ids.include?(params[:id].to_i)
         @contact = Company.find(params[:id]).company_contacts.find {|contact| contact.id.eql?(params[:contact_id].to_i)}

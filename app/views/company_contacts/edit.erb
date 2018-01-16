@@ -3,6 +3,8 @@
 <p><a href="/companies/<%=@company.id%>/contacts">display contacts</a> | <a href="/companies/<%=@company.id%>/contacts/new">add new contact</a></p>
 <h3>Edit Contact</h3>
 <form action="/companies/<%=@company.id%>/contacts/<%=@contact.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  
   <input type="hidden" name="contact[company_id]" value="<%=@contact.company.id%>">
   <input type="text" name="contact[first_name]" placeholder="Contact First Name" value="<%=@contact.first_name%>"><br>
   <input type="text" name="contact[last_name]" placeholder="Contact Last Name" value="<%=@contact.last_name%>"><br>
