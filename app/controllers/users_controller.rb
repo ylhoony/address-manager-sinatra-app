@@ -42,4 +42,13 @@ class UsersController < ApplicationController
     redirect '/'
   end
 
+  get '/users' do
+    if logged_in?
+      @current_user = current_user
+      erb :"users/show"
+    else
+      rediret '/login'
+    end
+  end
+
 end
