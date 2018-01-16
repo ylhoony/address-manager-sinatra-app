@@ -2,10 +2,10 @@ class Country < ActiveRecord::Base
   has_many :companies
   has_many :company_addresses
 
-  validates :name, uniqueness: true
-  validates :iso_2, uniqueness: true
-  validates :iso_3, uniqueness: true
-  validates :iso_numeric_3, uniqueness: true
+  validates :name, uniqueness: true, presence: true
+  validates :iso_2, uniqueness: true, presence: true
+  validates :iso_3, uniqueness: true, presence: true
+  validates :iso_numeric_3, uniqueness: true, presence: true
 
   def slug
     self.name.gsub(/[\W\s+]/,"-").downcase
