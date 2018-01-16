@@ -1,7 +1,16 @@
 class CompanyAddressesController < ApplicationController
 
   get '/companies/:id/addresses' do
-    erb :"company_addresses/index"
+    if logged_in?
+      if current_user.company_ids.include?(params[:id].to_i)
+        @company = Company.find(params[:id])
+        erb :"company_addresses/index"
+      else
+        redirect "/"
+      end
+    else
+      redirect "/login"
+    end
   end
 
   get '/companies/:id/addresses/new' do

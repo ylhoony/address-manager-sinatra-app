@@ -1,1 +1,17 @@
-company addresses index
+<p><a href="/companies">Home</a> | <a href="/users">My Profile</a> | <a href="/logout">Logout</a></p>
+<p><a href="/companies/<%=@company.id%>/addresses">display addresses</a> | <a href="/companies/<%=@company.id%>/addresses/new">add new address</a></p>
+<h3>Company Addresses for <%=@company.name%></h3>
+
+<% @company.company_addresses.each do |address| %>
+  <p>
+    <%=address.name%><br>
+    DBA <%=address.dba unless address.dba.empty?%><br>
+    <%=address.address_1%>, <%=address.address_2%><br>
+    <%=address.city%>, <%=address.state%><br>
+    <%=address.country.name%> <%=address.postal_code%><br>
+    Email: <%=address.email%> / Phone: <%=address.phone%><br>
+    Address Type: <%="Billing" if address.is_billing_address%> <%="Shipping" if address.is_shipping_address%><br>
+    Main Contact:
+
+  </p>
+<% end %>
