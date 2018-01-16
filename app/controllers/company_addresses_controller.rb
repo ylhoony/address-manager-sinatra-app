@@ -46,7 +46,7 @@ class CompanyAddressesController < ApplicationController
   get '/companies/:id/addresses/:address_id/edit' do
     if logged_in?
       @company = Company.find(params[:id])
-      @address = @company.company_addresses.find {|address| address.id.eql?(params[:address_id].to_i) }
+      @address = @company.company_addresses.find {|address| address.id.eql?(params[:address_id].to_i)}
 
       erb :"company_addresses/edit"
     else
@@ -56,7 +56,11 @@ class CompanyAddressesController < ApplicationController
 
   post '/companies/:id/addresses/:address_id' do
     if logged_in?
-      binding.pry
+      @company = Company.find(params[:id])
+      @address = @company.company_addresses.find {|address| address.id.eql?(params[:address_id].to_i)}
+      @address.update(params[:address])
+      @address.save
+      redirect "/companies/#{@company.id}/addresses/#{@address.id}"
     else
       redirect "/login"
     end

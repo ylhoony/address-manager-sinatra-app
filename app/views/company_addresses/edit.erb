@@ -16,8 +16,10 @@
   <input type="text" name="address[postal_code]" placeholder="Postal Code" value="<%=@address.postal_code%>"><br>
   <input type="text" name="address[email]" placeholder="Email" value="<%=@address.email%>"><br>
   <input type="text" name="address[phone]" placeholder="Phone Number" value="<%=@address.phone%>"><br>
-  <label for="billing_address">Billing Address: </label><input type="checkbox" name="address[is_billing_address]" id="billing_address" <%='checked' if @address.is_billing_address == true%>><br>
-  <label for="shipping_address">Shipping Address: </label><input type="checkbox" name="address[is_shipping_address]" id="shipping_address" <%='checked' if @address.is_shipping_address == true%>><br>
+  <input type="hidden" name="address[is_billing_address]" value="false">
+  <label for="billing_address">Billing Address: </label><input type="checkbox" name="address[is_billing_address]" id="billing_address" value="true" <%='checked' if @address.is_billing_address == true%>><br>
+  <input type="hidden" name="address[is_shipping_address]" value="false">
+  <label for="shipping_address">Shipping Address: </label><input type="checkbox" name="address[is_shipping_address]" id="shipping_address" value="true" <%='checked' if @address.is_shipping_address == true%>><br>
 
   add default contact selection<br>
 
