@@ -4,7 +4,7 @@
 
 <% @company.company_addresses.each do |address| %>
   <p>
-    <a href="/companies/<%=@company.id%>/addresses/<%=address.id%>/edit">edit address</a><br>
+    <a href="/companies/<%=@company.id%>/addresses/<%=address.id%>">view</a> | <a href="/companies/<%=@company.id%>/addresses/<%=address.id%>/edit">edit</a><br>
     <%=address.name%><br>
     DBA <%=address.dba unless address.dba.empty?%><br>
     <%=address.address_1%>, <%=address.address_2%><br>

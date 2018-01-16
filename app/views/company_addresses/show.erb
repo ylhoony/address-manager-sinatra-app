@@ -1,0 +1,18 @@
+<p><a href="/companies">Home</a> | <a href="/users">My Profile</a> | <a href="/logout">Logout</a></p>
+<p><a href="/companies/<%=@company.id%>/addresses">display addresses</a> | <a href="/companies/<%=@company.id%>/addresses/new">add new address</a></p>
+<h3>Company Address for <%=@company.name%></h3>
+
+<p><a href="/companies/<%=@company.id%>/addresses/<%=@address.id%>/edit">edit address below</a></p>
+<p>Company Name: <%=@address.name%></p>
+<p>Doing Business As: <%=@address.dba%></p>
+<p>Address Line 1: <%=@address.address_1%></p>
+<p>Address Line 2: <%=@address.address_2%></p>
+<p>City: <%=@address.city%></p>
+<p>State: <%=@address.state%></p>
+<p>Country: <%=@address.country.name%></p>
+<p>Postal Code: <%=@address.postal_code%></p>
+<p>Email: <%=@address.email%></p>
+<p>Billing Address <input type="checkbox" disabled <%='checked' if @address.is_billing_address == true%>>
+<p>Shipping Address <input type="checkbox" disabled <%='checked' if @address.is_shipping_address == true%>>
+
+<p>add default contact</p>
