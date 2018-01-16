@@ -1,6 +1,6 @@
 class CountriesController < ApplicationController
 
-  # use Rack::Flash
+  use Rack::Flash
 
   get '/countries' do
     erb :"countries/index"

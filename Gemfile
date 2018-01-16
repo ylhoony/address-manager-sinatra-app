@@ -17,7 +17,7 @@ gem "pry"
 gem "sqlite3"
 gem "bcrypt"
 gem "require_all"
-gem 'rack-flash3'
+gem 'rack-flash3', :require => "rack-flash"
 
 group :test do
   gem "rspec"
