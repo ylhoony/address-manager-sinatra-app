@@ -1,5 +1,7 @@
 class CountriesController < ApplicationController
 
+  # use Rack::Flash
+
   get '/countries' do
     erb :"countries/index"
   end
@@ -22,7 +24,7 @@ class CountriesController < ApplicationController
     erb :"/countries/edit"
   end
 
-  post '/countries/:slug' do
+  patch '/countries/:slug' do
     @country = Country.find_by_slug(params[:slug])
     if !has_empty_value?(params[:country])
       @country.update(params[:country])
