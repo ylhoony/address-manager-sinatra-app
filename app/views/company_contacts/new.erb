@@ -1,0 +1,14 @@
+<p><a href="/companies">Home</a> | <a href="/users">My Profile</a> | <a href="/logout">Logout</a></p>
+<p><a href="/companies/<%=@company.id%>/addresses">display addresses</a> | <a href="/companies/<%=@company.id%>/addresses/new">add new address</a></p>
+<p><a href="/companies/<%=@company.id%>/contacts">display contacts</a> | <a href="/companies/<%=@company.id%>/contacts/new">add new contact</a></p>
+<h3>Add New Contact</h3>
+<form action="/companies/<%=@company.id%>/contacts" method="post">
+  <input type="hidden" name="contact[company_id]" value="<%=@company.id%>">
+  <input type="text" name="contact[first_name]" placeholder="Contact First Name"><br>
+  <input type="text" name="contact[last_name]" placeholder="Contact Last Name"><br>
+  <input type="text" name="contact[email]" placeholder="Contact Email"><br>
+  <input type="text" name="contact[phone]" placeholder="Contact Phone"><br>
+
+  <button type="submit">Create</button>
+
+</form>
