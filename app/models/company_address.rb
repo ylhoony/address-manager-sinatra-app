@@ -1,5 +1,5 @@
 class CompanyAddress < ActiveRecord::Base
   belongs_to :company
   belongs_to :country
-  has_one :company_contact_id
+  belongs_to :company_contact
 end
