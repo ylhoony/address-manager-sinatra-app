@@ -9,7 +9,8 @@ Specs:
 => set has_many relationship
 - [X] Include user accounts => created user signup/login routes
 - [x] Ensure that users can't modify content created by other users
-- [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
+=> added condition to check the current_user and if the user has access on join table.
+- [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying => set up delete route on company_contacts only
 - [ ] Include user input validations
 - [ ] Display validation failures to user with error message (example form URL e.g. /posts/new)
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
