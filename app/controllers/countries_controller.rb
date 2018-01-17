@@ -12,6 +12,7 @@ class CountriesController < ApplicationController
 
   post '/countries' do
     if has_empty_value?(params)
+      flash[:message] = "Please fill out all fields with unique value."
       redirect "/countries/new"
     else
       @country = Country.create(params)
@@ -30,6 +31,7 @@ class CountriesController < ApplicationController
       @country.update(params[:country])
       redirect "/countries"
     else
+      flash[:message] = "Please fill out all fields with unique value."
       redirect "/countries/#{@country.slug}/edit"
     end
   end
