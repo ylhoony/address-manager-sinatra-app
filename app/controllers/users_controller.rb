@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  use Rack::Flash
+
   get '/signup' do
     if logged_in?
       redirect '/companies'
@@ -9,11 +11,12 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if has_empty_value?(params)
-      redirect "/signup"
-    else
-      @user = User.create(params)
+    @user = User.create(params)
+    if !@user.id.nil?
       redirect '/companies'
+    else
+      flash[:message] = "Please fill out all fields."
+      redirect "/signup"
     end
   end
 
@@ -68,6 +71,7 @@ class UsersController < ApplicationController
         session[:user_id] = @current_user.email
         redirect "/users"
       else
+        flash[:message] = "Please login."
         redirect "/logout"
       end
     else
