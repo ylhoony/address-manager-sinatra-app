@@ -11,8 +11,8 @@ Specs:
 - [x] Ensure that users can't modify content created by other users
 => added condition to check the current_user and if the user has access on join table.
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying => set up delete route on company_contacts only
-- [ ] Include user input validations
-- [ ] Display validation failures to user with error message (example form URL e.g. /posts/new)
+- [x] Include user input validations => added validation to model
+- [x] Display validation failures to user with error message (example form URL e.g. /posts/new) => used one for creating and editing country
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
