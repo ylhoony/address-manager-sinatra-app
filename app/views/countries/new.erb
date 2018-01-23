@@ -1,9 +1,5 @@
 <p><a href="/companies">Home</a> | <a href="/users">My Profile</a> | <a href="/logout">Logout</a></p>
 
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
-
 <h3>Add Country</h3>
 
 <form action="/countries" method="post">

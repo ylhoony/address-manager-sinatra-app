@@ -2,6 +2,10 @@
 <h3>Country List</h3>
 <p><a href="/countries/new"><em>add country</em></a></p>
 
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <% Country.all.each do |country| %>
   <h3><%=country.name%> <a href="/countries/<%=country.slug%>/edit"><i>edit</i></a></h3>
   <ul>

@@ -16,6 +16,7 @@ class CountriesController < ApplicationController
       redirect "/countries/new"
     else
       @country = Country.create(params)
+      flash[:message] = "Created successfully."
       redirect "/countries"
     end
   end
