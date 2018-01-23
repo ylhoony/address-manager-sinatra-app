@@ -20,6 +20,7 @@ class UsersController < ApplicationController
       flash[:message] = "Please fill out all fields."
       redirect "/signup"
     else
+      flash[:message] = "User created successfully."
       redirect '/companies'
     end
   end
