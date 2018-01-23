@@ -1,5 +1,7 @@
 class CompaniesController < ApplicationController
 
+  use Rack::Flash
+
   get '/companies' do
     if logged_in?
       @current_user = current_user
@@ -33,6 +35,7 @@ class CompaniesController < ApplicationController
         @address.save
       end
       @company.save
+      flash[:message] = "Company is created successfully"
       redirect "companies/#{@company.id}"
     else
       redirect "/login"
