@@ -11,12 +11,16 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
+    if User.find_by(email: params[:email])
+      flash[:message] = "User exists already."
+      redirect "/signup"
+    end
     @user = User.create(params)
-    if !@user.id.nil?
-      redirect '/companies'
-    else
+    if @user.id.nil?
       flash[:message] = "Please fill out all fields."
       redirect "/signup"
+    else
+      redirect '/companies'
     end
   end
 
