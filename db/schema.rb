@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116204212) do
+ActiveRecord::Schema.define(version: 20180123204120) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20180116204212) do
     t.string "postal_code"
     t.string "email"
     t.string "phone"
+    t.integer "revenue_code"
   end
 
   create_table "company_addresses", force: :cascade do |t|

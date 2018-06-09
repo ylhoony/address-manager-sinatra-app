@@ -21,6 +21,7 @@ class UsersController < ApplicationController
       redirect "/signup"
     else
       flash[:message] = "User created successfully."
+      session[:user_id] = params[:email]
       redirect '/companies'
     end
   end
